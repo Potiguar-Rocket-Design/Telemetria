@@ -12,6 +12,10 @@ struct __attribute__((packed)) TelemetryPacket_t {
     int16_t accel_total;
     int8_t  snr_db;
     uint8_t checksum;
+    // O RSSI é o Indicador de Intensidade do Sinal Recebido;
+    // Mede a Potência Bruta do sinal recebido em dBm (geralmente vai de -30 bBm a -120 dBm);
+    // Junto com o SNR (Relação Sinal-Ruído), ajuda a identificar se o problema é dustãncia (RSSI baixo) ou interferência (RSSI alto, mas SNR ruim).  
+    int8_t  rssi_dbm;
 };
 
 TelemetryPacket_t rxPacote;

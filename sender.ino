@@ -8,12 +8,22 @@
 
 // Struct com atributo packed para evitar padding na memória
 struct __attribute__((packed)) TelemetryPacket_t {
-    uint32_t timestamp_ms;
+    // reduzir de 4 bytes para 2 bytes
+    // o voo dura menos de 1 horas?
+    uint16_t timestamp_ms;
+    // quantos estados de voo nós temos?
     uint8_t flightState;
-    int16_t altitude_m;
+    // int (-32 a + 32 metros) -> uint (0 a 65 metros)
+    uint16_t altitude_m;
+    // aceleração total
     int16_t accel_total;
     int8_t  snr_db;
     uint8_t checksum;
+    // GPS
+    int32_t latitude;
+    int32_t longitude;
+    // temperatura interna do circuito (útil para monitorar em altas altitudes)
+    int8_t temperature_c;
 };
 
 TelemetryPacket_t telemetria;
@@ -43,12 +53,18 @@ void setup() {
     }
 
     // Configurações recomendadas para link inicial
+    // Vamos fazer o teste também com o valor 9
     LoRa.setSpreadingFactor(7);
     LoRa.setSignalBandwidth(125E3);
-    LoRa.setCodingRate4(5);
+    // Atual CR 4/5 (1 bit de correção para cada 4 de dados) = É o mais rápido, mas oferece menos proteção contra ruído;
+    // Mudança: CR 4/8 = Mais adequado para o caso da telemetria que é onde o sinal sofre reflexão e atenuação severa na subida.
+    // Isso torna o link mais resiliente a interferências externas.
+    LoRa.setCodingRate4(8);
 	LoRa.setSyncWord(0xF3); // O valor pode ser de 0x00 a 0xFF
     LoRa.enableCrc();
-    LoRa.setTxPower(2);
+    // Potência de transmissão, o atual valor é 2 dBm que é um valor baixo;
+    // Vamos usar a Potência Máxima do SX1276 (entre 17 dBm a 20 dBm), que é o ideal para longas distãncias;
+    LoRa.setTxPower(17);
 }
 
 void loop() {
