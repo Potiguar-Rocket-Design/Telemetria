@@ -143,8 +143,8 @@ void setup() {
     Serial.println();
 
     Serial.println(
-        "Tempo(ms);ID;RSSI(dBm);SNR(dB);"
-        "Recebidos;Perdidos;PRR(%)"
+        "- Tempo(ms); ID; RSSI(dBm); SNR(dB); \n"
+        "- Recebidos; Perdidos; PRR(%)\n"
     );
 }
 
