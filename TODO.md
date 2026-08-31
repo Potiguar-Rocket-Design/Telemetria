@@ -1,5 +1,5 @@
-### Gravar dados da telemetria:
-ver: 
+## Gravar dados da telemetria:
+### ver: 
 - [ ] Arduino JSON;
 - [ ] Salvar na memoria do ESP
 - [ ] apenas para servir de cheklist temporario:
@@ -9,10 +9,33 @@ ver:
 - [ ] Modificar o código para gravar os dados no arquivo CSV
 - [ ] Configurar LoRa para receber pacotes
 - [ ] Salvar o arquivo CSV com o formato correto
-- [ ] Verificar os dados salvos com Serial.print()
+- [ ] Verificar os dados salvos com ()
 - [ ] Testar com o Arduino JSON
 - [ ] Exportar para o grupo ou compartilhar
-### Ver possivel porta com erro:
-ver:
+## Ver possivel porta com erro:
+### ver:
  - [ ] Uma porta do ESP estava danificada e teve que ser mudado, tem que ver se o codigo foi atualizado com a porta correta.
 
+## EXPLICITAR QUAIS DADOS DEVEM SER SALVOS:
+
+- [ ] millis()
+
+- [ ] rxPacote.packet_id
+
+- [ ] rssi
+
+- [ ] pacotesRecebidos
+
+- [ ] pacotesPerdidos
+
+- [ ] prr
+
+- [ ] rxPacote.timestamp_ms
+
+- [ ] rxPacote.flightState
+
+- [ ] rxPacote.altitude_m
+
+- [ ] rxPacote.accel_total
+
+- [ ] snr
