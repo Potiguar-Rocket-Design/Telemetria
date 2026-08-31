@@ -3,7 +3,7 @@
         - Arduino JSON;
         - Salvar na memoria do ESP
         - apenas para servir de cheklist temporario:
-            - [] Criar o diretório de saída no PC (ex: C:\ProjetoDados\)
+            - [] Criar o diretório de saída no PC
             - [] Configurar o arquivo dados_arduino.csv
             - [] Instalar ArduinoJson no Arduino IDE
             - [] Modificar o código para gravar os dados no arquivo CSV
