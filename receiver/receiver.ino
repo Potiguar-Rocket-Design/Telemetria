@@ -204,29 +204,22 @@ void loop() {
             if (primeiroPacote) {
 
                 // Primeiro pacote recebido
-                ultimoPacketID =
-                    rxPacote.packet_id;
+                ultimoPacketID = rxPacote.packet_id;
 
                 primeiroPacote = false;
 
             } else {
 
                 // Verifica se existem IDs faltando
-                if (rxPacote.packet_id >
-                    ultimoPacketID + 1) {
+                if (rxPacote.packet_id > ultimoPacketID + 1) {
 
-                    uint32_t quantidadePerdida =
-                        rxPacote.packet_id -
-                        ultimoPacketID -
-                        1;
+                    uint32_t quantidadePerdida = ( rxPacote.packet_id - ultimoPacketID - 1 );
 
-                    pacotesPerdidos +=
-                        quantidadePerdida;
+                    pacotesPerdidos += quantidadePerdida;
                 }
 
                 // Atualiza último ID
-                ultimoPacketID =
-                    rxPacote.packet_id;
+                ultimoPacketID = rxPacote.packet_id;
             }
 
 
@@ -234,9 +227,7 @@ void loop() {
             // CALCULA PACOTES ESPERADOS
             // ==================================================
 
-            uint32_t pacotesEsperados =
-                pacotesRecebidos +
-                pacotesPerdidos;
+            uint32_t pacotesEsperados = pacotesRecebidos + pacotesPerdidos;
 
 
             // ==================================================
@@ -247,10 +238,8 @@ void loop() {
 
             if (pacotesEsperados > 0) {
 
-                prr =
-                    ((float)pacotesRecebidos /
-                     (float)pacotesEsperados)
-                    * 100.0;
+                prr = ((float)pacotesRecebidos / (float)pacotesEsperados) * 100.0;
+
             }
 
 
@@ -258,16 +247,14 @@ void loop() {
             // RSSI
             // ==================================================
 
-            float rssi =
-                LoRa.packetRssi();
+            float rssi = LoRa.packetRssi();
 
 
             // ==================================================
             // SNR
             // ==================================================
 
-            float snr =
-                LoRa.packetSnr();
+            float snr = LoRa.packetSnr();
 
 
             // ==================================================
