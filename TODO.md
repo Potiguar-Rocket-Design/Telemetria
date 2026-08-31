@@ -18,24 +18,16 @@
 
 ## EXPLICITAR QUAIS DADOS DEVEM SER SALVOS:
 
-- [ ] millis()
+- [x] rxPacote.packet_id
 
-- [ ] rxPacote.packet_id
+- [x] rssi
 
-- [ ] rssi
+- [x] pacotesRecebidos
 
-- [ ] pacotesRecebidos
+- [x] pacotesPerdidos
 
-- [ ] pacotesPerdidos
+- [x] prr
 
-- [ ] prr
+- [x] rxPacote.timestamp_ms
 
-- [ ] rxPacote.timestamp_ms
-
-- [ ] rxPacote.flightState
-
-- [ ] rxPacote.altitude_m
-
-- [ ] rxPacote.accel_total
-
-- [ ] snr
+- [x] snr
