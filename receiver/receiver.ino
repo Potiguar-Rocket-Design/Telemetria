@@ -48,9 +48,7 @@ struct __attribute__((packed)) TelemetryPacket_t {
 TelemetryPacket_t rxPacote;
 
 
-// ======================================================
-// VARIÁVEIS DO PRR
-// ======================================================
+// V A R I Á V E I S  D O  P R R :
 
 // Quantidade de pacotes íntegros recebidos
 uint32_t pacotesRecebidos = 0;
