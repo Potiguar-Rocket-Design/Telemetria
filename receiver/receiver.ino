@@ -258,7 +258,39 @@ void loop() {
             // SNR
             float snr = LoRa.packetSnr();
 
+            /*
+                Para gravar os dados será convertido os dados em strings e entao gravados
+            no arquivo.
 
+            primeiro vai converter todas em strings, dps montar a string e salvar ela no arquivo
+
+            */
+
+            //Criar o texto de registro:
+            char texto[] = "timestamp;packet_id;RSSI;SNR;pacotes_recebidos;pacotes_perdidos;PRR\n";
+
+            //converter timestam para string e gravar no CSV:
+            String time_String = String(millis());
+            String id_String = String(rxPacote.packet_id);
+            String rssi_String = String(rssi);
+            String snr_String = String(snr);
+            String recebido_String = String(pacotes_recebidos);
+            String perdido_String = String(pacotes_perdidos);
+            String prr_String = String(prr); 
+
+            //montar texto para gravação:
+            String linha = time_String + ";" + id_String + ";" + rssi_String + ";" + snr_String + ";" + recebido_String + ";" + perdido_String + ";" + prr_String;
+            
+            //escrevendo no arquivo:
+            arquivoCSV.print(linha);
+
+            //mostrar na tela:
+            Serial.print("Registro gravado: ");
+            Serial.println(linha);
+
+
+            
+            // DADOS MOSTRADOS NO SERIAL. NAO SAO GRAVADOS, APENAS APARECEM NO SERIAL:
 
             // DADOS NO SERIAL
             Serial.print(millis());
