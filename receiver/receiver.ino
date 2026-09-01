@@ -1,15 +1,28 @@
+//BIBLIOTECAS, INCLUIDES E DEMAIS COISAS:
+
 #include <SPI.h>
 #include <LoRa.h>
+#include <ArduinoJson.h> // Biblioteca para estrutrar/salvar os dados da telemetria (e o que mais for necessario) 
 
+
+// DEFINES, CONSTANTES, PINOS E DEMAIS COISAS NESSE SENTIDO:
 #define ss 22
 #define rst 14
 #define dio0 2
 
 
 // ======================================================
-// STRUCT
+// STRUCT 
 // ======================================================
 
+
+/*
+
+Essa struct esta usando um atribute que garante que os dados na memoria fiquem alocados na mesma sequencia. 
+No geral é só uma struct mesmo tendo esse atributo para proteção da alocação dos dados na memoria de forma
+mais segura e confiavel.
+
+*/
 struct __attribute__((packed)) TelemetryPacket_t {
 
     // Identificador sequencial do pacote
@@ -59,9 +72,18 @@ bool primeiroPacote = true;
 // CHECKSUM
 // ======================================================
 
-uint8_t calcularChecksum(TelemetryPacket_t* pacote) {
+/*
 
-    uint8_t* ptr = (uint8_t*)pacote;
+essa função vai verificar como os pacotes estao sendo recebidos, esta usando um padrão seguro
+para a industria/meio/ramo (pelo amor de Deus, revisa esses comentarios e deixa eles mais bem estruturadoskkkkkk)
+
+Ao bater o olho pela primeira vez ela pode assustar com essa manipulacao de ponteiros, mas ela funciona exatamente assim
+e no geral é assim que vai ser encontrada.
+
+*/
+uint8_t calcularChecksum(TelemetryPacket_t* pacote) { //esta recebendo o local que esta guardado o pcatoe
+
+    uint8_t* ptr = (uint8_t*)pacote; //entao "ptr" tambem esta apontando pra esse local que "pacote" esta na memotira
 
     uint8_t calc = 0;
 
@@ -115,19 +137,23 @@ void setup() {
     LoRa.setSignalBandwidth(125E3);
     LoRa.setCodingRate4(5);
     LoRa.setTxPower(2);
-
+/*
     // Trial 02
-    // LoRa.setSpreadingFactor(7);
-    // LoRa.setSignalBandwidth(125E3);
-    // LoRa.setCodingRate4(8);
-    // LoRa.setTxPower(17);
-
+    
+     LoRa.setSpreadingFactor(7);
+     LoRa.setSignalBandwidth(125E3);
+     LoRa.setCodingRate4(8);
+     LoRa.setTxPower(17);
+*/
+ 
+ /*
     // Trial 03
-    // LoRa.setSpreadingFactor(9);
-    // LoRa.setSignalBandwidth(125E3);
-    // LoRa.setCodingRate4(8);
-    // LoRa.setTxPower(17);
-
+    
+     LoRa.setSpreadingFactor(9);
+     LoRa.setSignalBandwidth(125E3);
+     LoRa.setCodingRate4(8);
+     LoRa.setTxPower(17);
+*/
 
     // Sync Word
     LoRa.setSyncWord(0xF3);
@@ -146,6 +172,33 @@ void setup() {
         "- Tempo(ms); ID; RSSI(dBm); SNR(dB); \n"
         "- Recebidos; Perdidos; PRR(%)\n"
     );
+
+    /*
+    
+    BLOCO PARA SALVAR OS DADOS EM UM ARQUIVO CSV:
+
+        1 - Atenção! se vc esta lendo esse bloco de comentarios a partir dessa linha
+        é sinal que ainda falta ser ajustado ou confirmado alguma coisa!
+        provavelmente o formato de como esta sendo gravado os dados ou os dados a serem salvos.
+
+        2 - A ideia inicial é deixar os dados salvos no ESP/Arduino (a depender da plataforma usada) 
+        e no PC, se não precisar de algo é comentar o bloco, um não interferir no outro.
+    
+    */
+
+    // SALVAR DADOS EM ARQUIVO CSV:
+        const char* arquivo_dados_telemetria = "dados_telemetria.csv"; //Atribui a string "dados_telemetria.csv" a constante arquivo_dados_telemetria
+        File arquivoCSV = SD.open(arquivo_dados_telemetria, FILE_WRITE); //cria arquivoCSV do tipo File, abre o arquivo e deixa ele "escrevivel" (to ocupado e cheio de coisa pra fazer, lute pra entenderkkkkkkkk)
+
+        if (!arquivoCSV) { //avisa se o arquivo CSV não foi aberto
+            Serial.println("Falha ao abrir o arquivo CSV para gravação dos dados!");
+            return;
+        }
+
+    // PARA ESCREVER O CABEÇALHO DO ARQUIVO
+    arquivoCSV.print("timestam;packet_id;RSSI;SNR;pacotes_recebidos;pacotes_perdidos;PRR\n"); //escreve no arquivo CSV exatamente o que esta dentro dessa função
+    Serial.println("Arquivo CSV criado!") //notifica no monitor serial que o arquivo CSV foi criado
+
 }
 
 
