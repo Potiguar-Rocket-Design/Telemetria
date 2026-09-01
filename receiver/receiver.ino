@@ -276,7 +276,7 @@ void loop() {
             String snr_String = String(snr);
             String recebido_String = String(pacotes_recebidos);
             String perdido_String = String(pacotes_perdidos);
-            String prr_String = String(prr); 
+            String prr_String = String(prr, 2); 
 
             //montar texto para gravação:
             String linha = time_String + ";" + id_String + ";" + rssi_String + ";" + snr_String + ";" + recebido_String + ";" + perdido_String + ";" + prr_String;
@@ -289,7 +289,7 @@ void loop() {
             Serial.println(linha);
 
 
-            
+
             // DADOS MOSTRADOS NO SERIAL. NAO SAO GRAVADOS, APENAS APARECEM NO SERIAL:
 
             // DADOS NO SERIAL
