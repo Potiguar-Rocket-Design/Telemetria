@@ -11,10 +11,7 @@
 #define dio0 2
 
 
-// ======================================================
-// STRUCT 
-// ======================================================
-
+// S T R U C T : 
 
 /*
 
@@ -68,9 +65,8 @@ uint32_t ultimoPacketID = 0;
 bool primeiroPacote = true;
 
 
-// ======================================================
-// CHECKSUM
-// ======================================================
+
+// C H E C K S U M :
 
 /*
 
@@ -105,9 +101,9 @@ uint8_t calcularChecksum(TelemetryPacket_t* pacote) { //esta recebendo o local q
 }
 
 
-// ======================================================
-// SETUP
-// ======================================================
+// =================
+// =  S E T U P    =
+// =================
 
 void setup() {
 
@@ -128,9 +124,8 @@ void setup() {
     }
 
 
-    // ==================================================
-    // CONFIGURAÇÃO DO TRIAL
-    // ==================================================
+    
+    // CONFIGURAÇÃO DO TRIAL:
 
     // Trial 01
     LoRa.setSpreadingFactor(7);
@@ -139,7 +134,6 @@ void setup() {
     LoRa.setTxPower(2);
 /*
     // Trial 02
-    
      LoRa.setSpreadingFactor(7);
      LoRa.setSignalBandwidth(125E3);
      LoRa.setCodingRate4(8);
@@ -148,7 +142,6 @@ void setup() {
  
  /*
     // Trial 03
-    
      LoRa.setSpreadingFactor(9);
      LoRa.setSignalBandwidth(125E3);
      LoRa.setCodingRate4(8);
@@ -202,58 +195,31 @@ void setup() {
 }
 
 
-// ======================================================
-// LOOP
-// ======================================================
+// ============
+// = L O O P  =
+// ============
 
 void loop() {
 
-    // ==================================================
     // AGUARDA PACOTES
-    // ==================================================
-
     int packetSize = LoRa.parsePacket();
 
 
-    // ==================================================
     // VERIFICA TAMANHO
-    // ==================================================
-
     if (packetSize == sizeof(TelemetryPacket_t)) {
 
-
-        // ==================================================
         // LÊ PACOTE
-        // ==================================================
+        LoRa.readBytes((uint8_t*)&rxPacote, sizeof(TelemetryPacket_t));
 
-        LoRa.readBytes(
-            (uint8_t*)&rxPacote,
-            sizeof(TelemetryPacket_t)
-        );
-
-
-        // ==================================================
         // VALIDA CHECKSUM
-        // ==================================================
-
-        uint8_t checksumCalculado =
-            calcularChecksum(&rxPacote);
-
+        uint8_t checksumCalculado = calcularChecksum(&rxPacote);
 
         if (rxPacote.checksum == checksumCalculado) {
 
-
-            // ==================================================
             // PACOTE ÍNTEGRO
-            // ==================================================
-
             pacotesRecebidos++;
 
-
-            // ==================================================
             // IDENTIFICA PACOTES PERDIDOS
-            // ==================================================
-
             if (primeiroPacote) {
 
                 // Primeiro pacote recebido
@@ -276,17 +242,10 @@ void loop() {
             }
 
 
-            // ==================================================
             // CALCULA PACOTES ESPERADOS
-            // ==================================================
-
             uint32_t pacotesEsperados = pacotesRecebidos + pacotesPerdidos;
 
-
-            // ==================================================
             // CALCULA PRR
-            // ==================================================
-
             float prr = 0;
 
             if (pacotesEsperados > 0) {
@@ -295,56 +254,38 @@ void loop() {
 
             }
 
-
-            // ==================================================
             // RSSI
-            // ==================================================
-
             float rssi = LoRa.packetRssi();
 
-
-            // ==================================================
             // SNR
-            // ==================================================
-
             float snr = LoRa.packetSnr();
 
 
-            // ==================================================
+
             // DADOS NO SERIAL
-            // ==================================================
-
             Serial.print(millis());
-
             Serial.print(";");
 
             Serial.print(rxPacote.packet_id);
-
             Serial.print(";");
 
             Serial.print(rssi);
-
             Serial.print(";");
 
             Serial.print(snr);
-
             Serial.print(";");
 
             Serial.print(pacotesRecebidos);
-
             Serial.print(";");
 
             Serial.print(pacotesPerdidos);
-
             Serial.print(";");
 
             Serial.println(prr, 2);
 
 
-            // ==================================================
-            // INFORMAÇÕES DETALHADAS
-            // ==================================================
 
+            // INFORMAÇÕES DETALHADAS
             Serial.println("--- PACOTE ÍNTEGRO RECEBIDO ---");
 
             Serial.print("ID do pacote: ");
@@ -383,24 +324,16 @@ void loop() {
             Serial.println();
 
 
-            // ==================================================
+
             // ENVIA O PONG / ACK
-            // ==================================================
-
             LoRa.beginPacket();
-
             LoRa.print("ACK");
-
             LoRa.endPacket();
         }
 
 
         else {
-
-            // ==================================================
             // CHECKSUM INVÁLIDO
-            // ==================================================
-
             Serial.println(
                 "ERRO: Checksum inválido. "
                 "Pacote corrompido!"
@@ -409,10 +342,7 @@ void loop() {
     }
 
 
-    // ==================================================
     // PACOTE DESCONHECIDO
-    // ==================================================
-
     else if (packetSize > 0) {
 
         Serial.print(
