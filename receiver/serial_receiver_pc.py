@@ -35,7 +35,7 @@ with open(dados_telemetria, "a", encoding="utf-8") as f:
                 f.write(linha + "\n")
                 f.flush() #Salva a linha no disco do PC
                 print(f"Salvo: {linha}")
-            except: KeyboardInterrupt:
+        except KeyboardInterrupt:
                 print("Gravação encerrada.")
                 break
 conexao_porta_serial.close()
