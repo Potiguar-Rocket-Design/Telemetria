@@ -34,7 +34,13 @@
 - [x] rxPacote.timestamp_ms
 
 - [x] snr
+# 
 
 # ATUALIZAR CODIGO DO ESP:
 ## formatar o codigo do ESP de modo que:
 -  todos os dados apresentados no motinor Serial fiquem na mesma posição e formato que os dados que serão salvos no SDcard.
+# 
+# Avaliar no código:
+- [] Devido o datasheet, eh necessario setar ente 11 ou 12 de LoRa.setSpreadingFactor():
+        Ver se serah necessario mudar o valor da banda no LoRa.setSignalBandwidth(125E3), a unica frequencia disponivel é o RFS_L7.8_LF;
+- [] serah avaliado o LoRa.setCodingRate4(5) e o LoRa.setTxPower(2);
