@@ -14,7 +14,10 @@ extensao = ".csv" #sera a extensao do arquivo
 contador = 1 #sera o identificador do arquivo
 
 while os.path.exists(f"{prefixo}({contador}){extensao}"):
-    ... #vou terminar de fazer, basicamente só vai ficar olhando se tem algum arquivo de telemetria existente e cria outro quando ligado. 
+    ... 
+    
+    
+    #vou terminar de fazer, basicamente só vai ficar olhando se tem algum arquivo de telemetria existente e cria outro quando ligado. 
     
 
 

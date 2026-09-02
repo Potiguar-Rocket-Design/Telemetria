@@ -13,6 +13,8 @@
 - [ ] Verificar os dados salvos com ()
 - [x] Testar com o Arduino JSON: SERÁ USADO O CARTAO SD/ESP E OS DADOS SALVO PELO Pyserial;
 - [ ] Exportar para o grupo ou compartilhar
+
+- [] ver "spiffs"
 ## Ver possivel porta com erro:
 ### ver:
  - [ ] Uma porta do ESP estava danificada e teve que ser mudado, tem que ver se o codigo foi atualizado com a porta correta.
