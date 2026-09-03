@@ -1,8 +1,9 @@
 //BIBLIOTECAS, INCLUIDES E DEMAIS COISAS:
-
+#include <Arduino.h> 
 #include <SPI.h>
 #include <LoRa.h>
-#include <ArduinoJson.h> // Biblioteca para estrutrar/salvar os dados da telemetria (e o que mais for necessario) 
+// #include <ArduinoJson.h> 
+// Biblioteca para estrutrar/salvar os dados da telemetria (e o que mais for necessario) 
 
 
 // DEFINES, CONSTANTES, PINOS E DEMAIS COISAS NESSE SENTIDO:
@@ -183,7 +184,7 @@ void setup() {
         e no PC, se não precisar de algo é comentar o bloco, um não interferir no outro.
     
     */
-
+/*
     // SALVAR DADOS EM ARQUIVO CSV:
         const char* arquivo_dados_telemetria = "dados_telemetria.csv"; //Atribui a string "dados_telemetria.csv" a constante arquivo_dados_telemetria
         File arquivoCSV = SD.open(arquivo_dados_telemetria, FILE_WRITE); //cria arquivoCSV do tipo File, abre o arquivo e deixa ele "escrevivel" (to ocupado e cheio de coisa pra fazer, lute pra entenderkkkkkkkk)
@@ -196,7 +197,7 @@ void setup() {
     // PARA ESCREVER O CABEÇALHO DO ARQUIVO
     arquivoCSV.print("timestam;packet_id;RSSI;SNR;pacotes_recebidos;pacotes_perdidos;PRR\n"); //escreve no arquivo CSV exatamente o que esta dentro dessa função
     Serial.println("Arquivo CSV criado!") //notifica no monitor serial que o arquivo CSV foi criado
-
+*/
 }
 
 
@@ -272,7 +273,7 @@ void loop() {
             primeiro vai converter todas em strings, dps montar a string e salvar ela no arquivo
 
             */
-
+/*
             //Criar o texto de registro:
             char texto[] = "timestamp;packet_id;RSSI;SNR;pacotes_recebidos;pacotes_perdidos;PRR\n";
 
@@ -294,7 +295,7 @@ void loop() {
             //mostrar na tela:
             Serial.print("Registro gravado: ");
             Serial.println(linha);
-
+*/
 
 
             // DADOS MOSTRADOS NO SERIAL. NAO SAO GRAVADOS, APENAS APARECEM NO SERIAL:
