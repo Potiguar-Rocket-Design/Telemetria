@@ -33,6 +33,10 @@ cabecalho = "timestamp;packet_id;RSSI;SNR;pacotes_recebidos;pacotes_perdidos;PRR
 #CONEXAO COM ESP:
 conexao_porta_serial = serial.Serial(porta, baud_rate, timeout=1)
 
+#------------------------------|
+#ESCRITA DE ARQUIVO:
+
+# abrir o arquivo
 with open(dados_telemetria, "a", encoding="utf-8") as f:
     print ("Conectado! dados de telemetria sendo gravados...")
     while True:
