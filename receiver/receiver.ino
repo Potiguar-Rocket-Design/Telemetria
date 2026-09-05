@@ -154,12 +154,13 @@ void setup() {
 
 */
 
-
+/*
     // Trial 01
     LoRa.setSpreadingFactor(7); 
     LoRa.setSignalBandwidth(125E3);
     LoRa.setCodingRate4(5);
     LoRa.setTxPower(2);
+*/
 /*
     // Trial 02
      LoRa.setSpreadingFactor(7);
@@ -175,6 +176,12 @@ void setup() {
      LoRa.setCodingRate4(8);
      LoRa.setTxPower(17);
 */
+
+    // trial 04
+     LoRa.setSpreadingFactor(12);
+     LoRa.setSignalBandwidth(125E3);
+     LoRa.setCodingRate4(8);
+     LoRa.setTxPower(20);
 
     // Sync Word
     LoRa.setSyncWord(0xF3);
@@ -324,22 +331,22 @@ void loop() {
 
             // DADOS NO SERIAL
             Serial.print(rxPacote.packet_id);
-            Serial.println(";"); //okie!
+            Serial.print(";"); //okie!
 
 
             Serial.print(rssi);
-            Serial.println(";"); //okie!
+            Serial.print(";"); //okie!
 
             Serial.print(pacotesRecebidos);
-            Serial.println(";"); //okie!
+            Serial.print(";"); //okie!
 
             Serial.print(pacotesPerdidos);
-            Serial.println(";"); //okie!
+            Serial.print(";"); //okie!
 
-            Serial.println(prr, 2); //okie!
+            Serial.print(prr, 2); //okie!
 
             Serial.print(snr);
-            Serial.println(";");
+            Serial.print(";");
 
             Serial.print(rxPacote.timestamp_ms);
             Serial.println(";");
