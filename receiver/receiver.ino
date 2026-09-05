@@ -1,3 +1,25 @@
+/*
+
+                        ! A T E N C A O !
+
+            Esse codigo ainda deve ser editado e limpo, não apague os comentarios referentes a escrita de dados
+em cartaoSD pois esses trechos esta servido apenas como esborco/sketch para a versão receiver_v2.ino que 
+ainda será escrita para a versão da estacao de telemetria!
+    Por enquanto apenas ignore esses trechos de codigo. 
+
+    Se tiver interesse, melhore esse codigo mantendo a sua funcionalidade e lembre-se sempre dessas regras:
+
+        - SEMPRE DEVE SER COMENTADO TUDO QUE FAZ, GASTE TODAS AS SUAS PALAVRAS E IDEIAS, COMENTE MUITO!;
+        - SEMPRE PREFIRA FAZER O MAIS FACIL DE SER LIDO E MANTIDO, EVITE TUDO QUE FOR COMPLEXO!;
+        - LEMBRAR QUE TUDO AQUI DEVE SER MANTIDO OU CONTINUADO POR OUTRA PESSOA, DEIXE TUDO O MAIS FACIL POSSIVEL;
+        - FACILIDADE;
+        - PRATICIDADE;
+        - CONFIANCA;
+        - SEGURANCA;
+
+
+*/
+
 //BIBLIOTECAS, INCLUIDES E DEMAIS COISAS:
 #include <Arduino.h> 
 #include <SPI.h>
@@ -298,31 +320,35 @@ void loop() {
 */
 
 
-            // DADOS MOSTRADOS NO SERIAL. NAO SAO GRAVADOS, APENAS APARECEM NO SERIAL:
+            // DADOS MOSTRADOS NO SERIAL. SAO GRAVADOS NO ARQUIVO DE TELEMETRIA!
 
             // DADOS NO SERIAL
-            Serial.print(millis());
-            Serial.print(";");
-
             Serial.print(rxPacote.packet_id);
-            Serial.print(";");
+            Serial.println(";"); //okie!
+
 
             Serial.print(rssi);
-            Serial.print(";");
-
-            Serial.print(snr);
-            Serial.print(";");
+            Serial.println(";"); //okie!
 
             Serial.print(pacotesRecebidos);
-            Serial.print(";");
+            Serial.println(";"); //okie!
 
             Serial.print(pacotesPerdidos);
-            Serial.print(";");
+            Serial.println(";"); //okie!
 
-            Serial.println(prr, 2);
+            Serial.println(prr, 2); //okie!
+
+            Serial.print(snr);
+            Serial.println(";");
+
+            Serial.print(rxPacote.timestamp_ms);
+            Serial.println(";");
 
 
+//            Serial.print(millis());
+//            Serial.print(";");
 
+/*
             // INFORMAÇÕES DETALHADAS
             Serial.println("--- PACOTE ÍNTEGRO RECEBIDO ---");
 
@@ -367,7 +393,7 @@ void loop() {
             LoRa.beginPacket();
             LoRa.print("ACK");
             LoRa.endPacket();
-        }
+*/        }
 
 
         else {

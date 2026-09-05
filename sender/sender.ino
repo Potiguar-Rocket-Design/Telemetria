@@ -2,7 +2,7 @@
 #include <LoRa.h>
 
 // Definição dos pinos SPI para o ESP32 (Padrão VSPI)
-#define ss 5
+#define ss 4 // anteriormente era 5
 #define rst 14
 #define dio0 2
 
