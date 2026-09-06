@@ -21,7 +21,7 @@ def selecionar_porta():
     while True:
         escolha = input(f"Selecione a porta [ 11{len(portas)}]: ").strip()
         if escolha.isdigit() and 1 <= int(escolha) <= len(portas):
-            return porta[int(escolha) - 1].device
+            return portas[int(escolha) - 1].device
         print("Opção invalida. Tente novamente.")
 
 #Selecao de portas:
