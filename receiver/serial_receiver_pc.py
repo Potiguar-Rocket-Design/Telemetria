@@ -9,7 +9,7 @@ import serial.tools.list_ports
 #DETECTAR PORTAS USB:
 def selecionar_porta():
     portas = list(serial.tools.list_ports.comports()) #Vê as portas e guarda cada uma com o que esta conectado
-    if not porta: #Avisa que nenhum dispotivo serial foi encontrado e encerra o programa 
+    if not portas: #Avisa que nenhum dispotivo serial foi encontrado e encerra o programa 
         print("Nenhum dispositivo serial encontrado! Verifique a conexão USB.")
         input("Pressione Enter para sair...")
         sys.exit(1)
