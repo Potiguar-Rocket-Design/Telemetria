@@ -1,0 +1,1 @@
+rxPacote.packet_id ; rssi ; pacotesRecebidos ; pacotesPerdidos ; prr ; snr ; rxPacote.timestamp_ms
