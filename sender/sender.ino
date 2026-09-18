@@ -199,10 +199,7 @@ void loop() {
 
         LoRa.beginPacket();
 
-        LoRa.write(
-            (uint8_t*)&telemetria,
-            sizeof(TelemetryPacket_t)
-        );
+        LoRa.write( (uint8_t*)&telemetria, sizeof(TelemetryPacket_t) );
 
         LoRa.endPacket();
 
