@@ -96,25 +96,35 @@ void setup() {
     // CONFIGURAÇÃO DO TRIAL
     // ==================================================
 
+
     // Trial 01
-    LoRa.setSpreadingFactor(7);
+    LoRa.setSpreadingFactor(7); 
     LoRa.setSignalBandwidth(125E3);
     LoRa.setCodingRate4(5);
     LoRa.setTxPower(2);
 
+/*
     // Trial 02
-    // LoRa.setSpreadingFactor(7);
-    // LoRa.setSignalBandwidth(125E3);
-    // LoRa.setCodingRate4(8);
-    // LoRa.setTxPower(17);
-
+     LoRa.setSpreadingFactor(7);
+     LoRa.setSignalBandwidth(125E3);
+     LoRa.setCodingRate4(8);
+     LoRa.setTxPower(17);
+*/
+ 
+ /*
     // Trial 03
-    // LoRa.setSpreadingFactor(9);
-    // LoRa.setSignalBandwidth(125E3);
-    // LoRa.setCodingRate4(8);
-    // LoRa.setTxPower(17);
-
-
+     LoRa.setSpreadingFactor(9);
+     LoRa.setSignalBandwidth(125E3);
+     LoRa.setCodingRate4(8);
+     LoRa.setTxPower(17);
+*/
+/*
+    // trial 04
+     LoRa.setSpreadingFactor(12);
+     LoRa.setSignalBandwidth(125E3);
+     LoRa.setCodingRate4(8);
+     LoRa.setTxPower(20);
+*/
     // Sync Word
     LoRa.setSyncWord(0xF3);
 
