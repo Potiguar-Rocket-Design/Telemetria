@@ -48,7 +48,7 @@ struct __attribute__((packed)) TelemetryPacket_t {
     // Identificador sequencial do pacote
     uint32_t packet_id;
 
-    uint16_t timestamp_ms;
+    uint32_t timestamp_ms;
 
     uint8_t flightState;
 
