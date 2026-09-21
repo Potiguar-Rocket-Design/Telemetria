@@ -44,3 +44,12 @@
 - [x] Devido o datasheet, eh necessario setar ente 11 ou 12 de LoRa.setSpreadingFactor():
         Ver se serah necessario mudar o valor da banda no LoRa.setSignalBandwidth(125E3), a unica frequencia disponivel é o RFS_L7.8_LF;
 - [x] serah avaliado o LoRa.setCodingRate4(5) e o LoRa.setTxPower(2);
+
+# NOVA MEDIÇÃO:
+## Rua Das Engenharias (rua do PRD)![alt text](images/image2.png)
+- [] 300m;
+
+## Anel viário da UFRN (ECT-UFRN)![alt text](images/image.png):
+- [] 700m;
+
+##  1km sera provavelmente na praia.
