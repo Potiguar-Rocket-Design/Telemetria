@@ -13,7 +13,7 @@ struct __attribute__((packed)) TelemetryPacket_t {
     uint32_t packet_id;
 
     // Timestamp do envio
-    uint16_t timestamp_ms;
+    uint32_t timestamp_ms;
 
     uint8_t flightState;
 
