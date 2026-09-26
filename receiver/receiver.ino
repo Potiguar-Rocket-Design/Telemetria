@@ -151,15 +151,16 @@ void setup() {
  - Devido o datasheet, eh necessario setar ente 11 ou 12 de LoRa.setSpreadingFactor():
         Ver se serah necessario mudar o valor da banda no LoRa.setSignalBandwidth(125E3), a unica frequencia disponivel é o RFS_L7.8_LF;
 - serah avaliado o LoRa.setCodingRate4(5) e o LoRa.setTxPower(2);
-
 */
 
 
+/*
     // Trial 01
     LoRa.setSpreadingFactor(7); 
     LoRa.setSignalBandwidth(125E3);
     LoRa.setCodingRate4(5);
     LoRa.setTxPower(2);
+*/
 
 /*
     // Trial 02
@@ -167,8 +168,8 @@ void setup() {
      LoRa.setSignalBandwidth(125E3);
      LoRa.setCodingRate4(8);
      LoRa.setTxPower(17);
-*/
- 
+
+ */
  /*
     // Trial 03
      LoRa.setSpreadingFactor(9);
@@ -176,13 +177,13 @@ void setup() {
      LoRa.setCodingRate4(8);
      LoRa.setTxPower(17);
 */
-/*
+
     // trial 04
      LoRa.setSpreadingFactor(12);
      LoRa.setSignalBandwidth(125E3);
      LoRa.setCodingRate4(8);
      LoRa.setTxPower(20);
-*/
+
     // Sync Word
     LoRa.setSyncWord(0xF3);
 
