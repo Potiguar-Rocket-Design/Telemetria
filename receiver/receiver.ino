@@ -29,8 +29,8 @@ ainda será escrita para a versão da estacao de telemetria!
 
 
 // DEFINES, CONSTANTES, PINOS E DEMAIS COISAS NESSE SENTIDO:
-#define ss 22
-#define rst 14
+#define ss 4 //na protoboard 22
+#define rst 14 //
 #define dio0 2
 
 
@@ -48,7 +48,7 @@ struct __attribute__((packed)) TelemetryPacket_t {
     // Identificador sequencial do pacote
     uint32_t packet_id;
 
-    uint32_t timestamp_ms;
+    uint16_t timestamp_ms;
 
     uint8_t flightState;
 

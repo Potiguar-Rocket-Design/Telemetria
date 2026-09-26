@@ -2,7 +2,7 @@
 #include <LoRa.h>
 
 // Definição dos pinos SPI para o ESP32 (Padrão VSPI)
-#define ss 4 // anteriormente era 5
+#define ss 4// anteriormente era 5
 #define rst 14
 #define dio0 2
 
@@ -13,7 +13,7 @@ struct __attribute__((packed)) TelemetryPacket_t {
     uint32_t packet_id;
 
     // Timestamp do envio
-    uint32_t timestamp_ms;
+    uint16_t timestamp_ms;
 
     uint8_t flightState;
 
