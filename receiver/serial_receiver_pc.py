@@ -56,7 +56,7 @@ dados_telemetria = f"{prefixo}({contador}){extensao}"
 print(f"Novo arquivo criado: {dados_telemetria}")
 
 #cabecalho do arquivo:
-cabecalho = "timestamp;packet_id;RSSI;SNR;pacotes_recebidos;pacotes_perdidos;PRR\n"
+cabecalho = "packet_id;rssi;pacotes_recebidos;pacotes_perdidos;prr;snr;timestamp_ms\n"
 
 
 #------------------------------|
