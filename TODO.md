@@ -47,9 +47,10 @@
 
 # NOVA MEDIÇÃO:
 ## Rua Das Engenharias (rua do PRD)![alt text](images/image2.png)
-- [] 300m;
+- [x] 300m;
 
-## Anel viário da UFRN (ECT-UFRN)![alt text](images/viacosteira_700m.png):
+## Via Costeira (Pinheirais) (ECT-UFRN)![alt text](images/viacosteira_700m.png):
 - [] 700m;
 
-##  1km sera provavelmente na praia ![alt text](images/viacosteira_1km.png)
+##  Via Costeira (Pinheirais) ![alt text](images/viacosteira_1km.png)
+- [] 1km.

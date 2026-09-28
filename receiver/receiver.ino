@@ -159,9 +159,9 @@ void setup() {
         Ver se serah necessario mudar o valor da banda no LoRa.setSignalBandwidth(125E3), a unica frequencia disponivel é o RFS_L7.8_LF;
 - serah avaliado o LoRa.setCodingRate4(5) e o LoRa.setTxPower(2);
 */
-
-
 /*
+
+
     // Trial 01
     LoRa.setSpreadingFactor(7); 
     LoRa.setSignalBandwidth(125E3);
@@ -175,9 +175,9 @@ void setup() {
      LoRa.setSignalBandwidth(125E3);
      LoRa.setCodingRate4(8);
      LoRa.setTxPower(17);
+*/
+/*
 
- */
- /*
     // Trial 03
      LoRa.setSpreadingFactor(9);
      LoRa.setSignalBandwidth(125E3);

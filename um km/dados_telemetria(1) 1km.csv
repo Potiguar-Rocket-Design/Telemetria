@@ -1,0 +1,2 @@
+packet_id;rssi;pacotes_recebidos;pacotes_perdidos;prr;snr;timestamp_ms
+122;-92.00;1;0;100.00-23.25;36393;
