@@ -49,7 +49,7 @@
 ## Rua Das Engenharias (rua do PRD)![alt text](images/image2.png)
 - [] 300m;
 
-## Anel viário da UFRN (ECT-UFRN)![alt text](images/image.png):
+## Anel viário da UFRN (ECT-UFRN)![alt text](images/viacosteira_700m.png):
 - [] 700m;
 
-##  1km sera provavelmente na praia.
+##  1km sera provavelmente na praia ![alt text](images/viacosteira_1km.png)
