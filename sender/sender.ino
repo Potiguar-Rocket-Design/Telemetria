@@ -1,10 +1,50 @@
+/*
+
+                        ! A T E N C A O !
+
+            Esse codigo ainda deve ser editado e limpo, não apague os comentarios referentes a escrita de dados
+em cartaoSD pois esses trechos esta servido apenas como esborco/sketch para a versão receiver_v2.ino que 
+ainda será escrita para a versão da estacao de telemetria!
+    Por enquanto apenas ignore esses trechos de codigo. 
+
+    Se tiver interesse, melhore esse codigo mantendo a sua funcionalidade e lembre-se sempre dessas regras:
+
+        - SEMPRE DEVE SER COMENTADO TUDO QUE FAZ, GASTE TODAS AS SUAS PALAVRAS E IDEIAS, COMENTE MUITO!;
+        - SEMPRE PREFIRA FAZER O MAIS FACIL DE SER LIDO E MANTIDO, EVITE TUDO QUE FOR COMPLEXO!;
+        - LEMBRAR QUE TUDO AQUI DEVE SER MANTIDO OU CONTINUADO POR OUTRA PESSOA, DEIXE TUDO O MAIS FACIL POSSIVEL;
+        - FACILIDADE;
+        - PRATICIDADE;
+        - CONFIANCA;
+        - SEGURANCA;
+
+
+*/
+//BIBLIOTECAS, INCLUDES E DEMAIS COISAS:
 #include <SPI.h>
 #include <LoRa.h>
 
+// DEFINES, CONSTANTES, PINOS E DEMAIS COISAS NESSE SENTIDO:
 // Definição dos pinos SPI para o ESP32 (Padrão VSPI)
-#define ss 4// anteriormente era 5
+
+/*
+ Do mesmo jeito que estiver em uma placa tem que 
+ficar na outra, tente manter a mesma configuração 
+de pinos em ambas as placas (ou todas as placas)
+*/
+
+#define ss 4 // anteriormente era 5
 #define rst 14
 #define dio0 2
+
+// S T R U C T : 
+
+/*
+
+Essa struct esta usando um atribute que garante que os dados na memoria fiquem alocados na mesma sequencia. 
+No geral é só uma struct mesmo tendo esse atributo para proteção da alocação dos dados na memoria de forma
+mais segura e confiavel.
+
+*/
 
 // Struct com atributo packed para evitar padding na memória
 struct __attribute__((packed)) TelemetryPacket_t {
@@ -46,6 +86,16 @@ uint32_t packet_id = 0;
 // ======================================================
 // FUNÇÃO PARA CALCULAR CHECKSUM
 // ======================================================
+
+/*
+
+essa função vai verificar como os pacotes estao sendo recebidos, esta usando um padrão seguro
+para a industria/meio/ramo (pelo amor de Deus, revisa esses comentarios e deixa eles mais bem estruturadoskkkkkk)
+
+Ao bater o olho pela primeira vez ela pode assustar com essa manipulacao de ponteiros, mas ela funciona exatamente assim
+e no geral é assim que vai ser encontrada.
+
+*/
 
 uint8_t calcularChecksum(TelemetryPacket_t* pacote) {
 

@@ -29,6 +29,13 @@ ainda será escrita para a versão da estacao de telemetria!
 
 
 // DEFINES, CONSTANTES, PINOS E DEMAIS COISAS NESSE SENTIDO:
+
+/*
+ Do mesmo jeito que estiver em uma placa tem que 
+ficar na outra, tente manter a mesma configuração 
+de pinos em ambas as placas (ou todas as placas)
+*/
+
 #define ss 4 //na protoboard 22
 #define rst 14 //
 #define dio0 2
