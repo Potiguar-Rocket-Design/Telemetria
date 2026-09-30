@@ -352,7 +352,8 @@ void loop() {
             Serial.print(";"); //okie!
 
             Serial.print(prr, 2); //okie!
-
+            Serial.print(";");
+            
             Serial.print(snr);
             Serial.print(";");
 
