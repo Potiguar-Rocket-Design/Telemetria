@@ -1,4 +1,4 @@
-packet_id;rssi;pacotes_recebidos;pacotes_perdidos;prr;snr;timestamp_ms
+packet_id;rssi;pacotes_recebidos;pacotes_perdidos;prr;snr;timestamp_ms;
 40;-31.00;14;0;100.00;12.50;54505;
 41;-31.00;15;0;100.00;9.25;57481;
 42;-30.00;16;0;100.00;11.25;60457;

@@ -1,1 +1,1 @@
-packet_id;rssi;pacotes_recebidos;pacotes_perdidos;prr;snr;timestamp_ms
+packet_id;rssi;pacotes_recebidos;pacotes_perdidos;prr;snr;timestamp_ms;
