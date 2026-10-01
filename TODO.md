@@ -19,31 +19,31 @@
 ### ver:
  - [x] Uma porta do ESP estava danificada e teve que ser mudado, tem que ver se o codigo foi atualizado com a porta correta.
 
-## EXPLICITAR QUAIS DADOS DEVEM SER SALVOS:
+## ~~EXPLICITAR QUAIS DADOS DEVEM SER SALVOS:~~ 
 
-- [x] rxPacote.packet_id
+- ~~[x] rxPacote.packet_id~~
 
-- [x] rssi
+- ~~[x] rssi~~
 
-- [x] pacotesRecebidos
+- ~~[x] pacotesRecebidos~~
 
-- [x] pacotesPerdidos
+- ~~[x] pacotesPerdidos~~
 
-- [x] prr
+- ~~[x] prr~~
 
-- [x] rxPacote.timestamp_ms
+- ~~[x] rxPacote.timestamp_ms~~
 
-- [x] snr
+- ~~[x] snr~~
 # 
 
-# ATUALIZAR CODIGO DO ESP:
-## formatar o codigo do ESP de modo que:
--  todos os dados apresentados no motinor Serial fiquem na mesma posição e formato que os dados que serão salvos no SDcard.
+# ~~ATUALIZAR CODIGO DO ESP:~~
+## ~~formatar o codigo do ESP de modo que:~~
+-  ~~todos os dados apresentados no motinor Serial fiquem na mesma posição e formato que os dados que serão salvos no SDcard.~~
 # 
-# Avaliar no código:
-- [x] Devido o datasheet, eh necessario setar ente 11 ou 12 de LoRa.setSpreadingFactor():
-        Ver se serah necessario mudar o valor da banda no LoRa.setSignalBandwidth(125E3), a unica frequencia disponivel é o RFS_L7.8_LF;
-- [x] serah avaliado o LoRa.setCodingRate4(5) e o LoRa.setTxPower(2);
+# ~~Avaliar no código:~~
+- ~~[x] Devido o datasheet, eh necessario setar ente 11 ou 12 de LoRa.setSpreadingFactor():~~
+        ~~Ver se serah necessario mudar o valor da banda no LoRa.setSignalBandwidth(125E3), a unica frequencia disponivel é o RFS_L7.8_LF;~~
+- ~~[x] serah avaliado o LoRa.setCodingRate4(5) e o LoRa.setTxPower(2);~~
 
 # NOVA MEDIÇÃO:
 ## Rua Das Engenharias (rua do PRD)![alt text](images/image2.png)
@@ -54,3 +54,10 @@
 
 ##  Via Costeira (Pinheirais) ![alt text](images/viacosteira_1km.png)
 - [] 1km.
+
+# NOVO CODIGO EM FreeRTOS:
+## Fazer novo codigo em FreeRTOS para o `receiver.ino`:
+- [] fazer nova arquitetura;
+
+## Fazer novo codigo em FreeRTOS para o `sender.ino`:
+- [] fazer nova arquitetura;
