@@ -57,7 +57,11 @@
 
 # NOVO CODIGO EM FreeRTOS:
 ## Fazer novo codigo em FreeRTOS para o `receiver.ino`:
-- [] fazer nova arquitetura;
+### Fazer nova arquitetura:
+ Fazer a fila:
+
+- [] Precisa fazer uma variável do tipo `QueueHandle_t`:
+ A fila precisa ser criada informando o tamanho de cada item, nesse caso, o do `TelemetryPackert_t` e quantos pacotes consegue armazenasr. Cheagando muitos pacotes eles precisam ficar em uma fila de espera.
 
 ## Fazer novo codigo em FreeRTOS para o `sender.ino`:
 - [] fazer nova arquitetura;
